@@ -8,9 +8,9 @@ return {
 id:0,
 nombre:"",
 imagen:"",
-stock:0,
+descripcion:"",
 precio:0,
-url:'http://mcerda.pythonanywhere.com/productos/'+id,
+url:'https://mel01981.pythonanywhere.com/productos/'+id,
 }
 },
 methods: {
@@ -19,11 +19,11 @@ fetch(url)
 .then(response => response.json())
 .then(data => {
 console.log(data)
-this.id=data.id
-this.nombre = data.nombre;
+this.id=data.id,
+this.nombre = data.nombre,
+this.precio=data.precio,
+this.descripcion=data.descripcion,
 this.imagen=data.imagen
-this.stock=data.stock
-this.precio=data.precio
 })
 .catch(err => {
 console.error(err);
@@ -34,7 +34,7 @@ modificar() {
 let producto = {
 nombre:this.nombre,
 precio: this.precio,
-stock: this.stock,
+descripcion: this.descripcion,
 imagen:this.imagen
 }
 var options = {
